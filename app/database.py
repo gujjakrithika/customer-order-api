@@ -1,8 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
  
-DATABASE_URL = "postgresql+psycopg2://postgres:Krithika%402751@localhost:5432/customer_order_db"
- 
+DATABASE_URL = "postgresql+psycopg2://postgres:Krithika%402751@postgres-db:5432/customer_order_db" 
 engine = create_engine(DATABASE_URL)
  
 SessionLocal = sessionmaker(
@@ -12,4 +11,3 @@ SessionLocal = sessionmaker(
 )
  
 Base = declarative_base()
- 

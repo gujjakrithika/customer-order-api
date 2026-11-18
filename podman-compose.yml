@@ -1,0 +1,28 @@
+version: "3.9"
+ 
+services:
+  db:
+    image: postgres:17
+    container_name: postgres-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Krithika@2751
+      POSTGRES_DB: customer_order_db
+    ports:
+      - "5432:5432"
+    networks:
+      - customer-network
+ 
+  api:
+    build: .
+    container_name: customer-api-container
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    networks:
+      - customer-network
+ 
+networks:
+  customer-network:
+    driver: bridge
