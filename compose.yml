@@ -28,6 +28,17 @@ services:
    restart: on-failure
    networks:
      - customer-network
+ web:
+   build:
+     context: ./frontend
+     dockerfile: Containerfile
+   container_name: customer-web-container
+   ports:
+     - "3000:80"
+   depends_on:
+     - api
+   networks:
+     - customer-network
 networks:
  customer-network:
    driver: bridge
